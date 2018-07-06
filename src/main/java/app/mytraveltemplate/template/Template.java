@@ -1,24 +1,26 @@
 package app.mytraveltemplate.template;
 
-import java.util.HashMap;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "templates")
 public class Template {
 	
-	private int id;
-	private int duration;
+	@Id
+	private Integer id;
+	private Integer duration;
 	private String traveler_type;
 	private String pace;
-	private List<String> transport;
-	private HashMap<String, String> content;
-	
+	private String transport;
+	private String content;
 	
 	public Template() {
-
 	}
 	
-	public Template(int id, int duration, String traveler_type, String pace, List<String> transport,
-			HashMap<String, String> content) {
+	public Template(Integer id, Integer duration, String traveler_type, String pace, String transport,
+			String content) {
 		super();
 		this.id = id;
 		this.duration = duration;
@@ -53,16 +55,16 @@ public class Template {
 	public void setPace(String pace) {
 		this.pace = pace;
 	}
-	public List<String> getTransport() {
+	public String getTransport() {
 		return transport;
 	}
-	public void setTransport(List<String> transport) {
+	public void setTransport(String transport) {
 		this.transport = transport;
 	}
-	public HashMap<String, String> getContent() {
+	public String getContent() {
 		return content;
 	}
-	public void setContent(HashMap<String, String> content) {
+	public void setContent(String content) {
 		this.content = content;
 	}	
 	
