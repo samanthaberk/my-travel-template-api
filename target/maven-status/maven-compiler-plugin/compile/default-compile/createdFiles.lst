@@ -1,0 +1,5 @@
+app/mytraveltemplate/template/TemplateController.class
+app/mytraveltemplate/Application.class
+app/mytraveltemplate/template/TemplateService.class
+app/mytraveltemplate/template/Template.class
+app/mytraveltemplate/template/TemplateRepository.class

@@ -1,7 +1,6 @@
 package app.mytraveltemplate.template;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,6 @@ public class TemplateService {
 	public List<Template> getAllTemplates() {
 		List<Template> templates = new ArrayList<>();
 		for(Template t : templateRepository.findAll()) {
-			Arrays.asList(t.getTransport().split("\\s*,\\s*"));
 			templates.add(t);
 		}
 		return templates;
@@ -27,11 +25,15 @@ public class TemplateService {
 		return templateRepository.findOne(id);
 	}
 	
-	// CUSTOM QUERIES
-	
-	public List<Template> byDuration(int duration){
-		return templateRepository.findAllByDuration(duration);
+	public List<Template> findByDurationAndTravelertype(int duration, String travelertype) {
+		List<Template> templates = new ArrayList<>();
+		for(Template t : templateRepository.findAll()) {
+			if(t.getDuration().equals(duration) && t.getTravelertype().equals(travelertype)) {
+			 templates.add(t);
+			}
+		}
+		return templates;
 	}
 
-
 }
+

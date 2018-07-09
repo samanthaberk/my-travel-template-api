@@ -11,7 +11,7 @@ public class Template {
 	@Id
 	private Integer id;
 	private Integer duration;
-	private String traveler_type;
+	private String travelertype;
 	private String pace;
 	private String transport;
 	private String content;
@@ -19,12 +19,12 @@ public class Template {
 	public Template() {
 	}
 	
-	public Template(Integer id, Integer duration, String traveler_type, String pace, String transport,
+	public Template(Integer id, Integer duration, String travelertype, String pace, String transport,
 			String content) {
 		super();
 		this.id = id;
 		this.duration = duration;
-		this.traveler_type = traveler_type;
+		this.travelertype = travelertype;
 		this.pace = pace;
 		this.transport = transport;
 		this.content = content;
@@ -37,17 +37,17 @@ public class Template {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getDuration() {
+	public Integer getDuration() {
 		return duration;
 	}
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
-	public String getTraveler_type() {
-		return traveler_type;
+	public String getTravelertype() {
+		return travelertype;
 	}
-	public void setTraveler_type(String traveler_type) {
-		this.traveler_type = traveler_type;
+	public void setTravelertype(String travelertype) {
+		this.travelertype = travelertype;
 	}
 	public String getPace() {
 		return pace;
