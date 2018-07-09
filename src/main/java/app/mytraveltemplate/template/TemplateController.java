@@ -24,12 +24,9 @@ public class TemplateController {
 		return templateService.getTemplate(id);
 	}
 	
-	@RequestMapping("templates/duration/{duration}/{travelerType}")
-		public List<Template> findByDurationAndTravelertype(@PathVariable int duration, @PathVariable String travelerType) {
-		return templateService.findByDurationAndTravelertype(duration, travelerType);
+	@RequestMapping("templates/duration/{duration}/travelers/{travelerType}/pace/{pace}/transport/{transport}")
+		public List<Template> filterTemplates(@PathVariable int duration, @PathVariable String travelerType, @PathVariable String pace, @PathVariable String transport) {
+		return templateService.filterTemplates(duration, travelerType, pace, transport);
 	}
 
 }
-//
-//public List<Template> findByDurationAndTravelertype(@PathVariable int duration, @PathVariable String travelertype) {
-//	return templateService.findByDurationAndTravelertype(duration, travelertype);
