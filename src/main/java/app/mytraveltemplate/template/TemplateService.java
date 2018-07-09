@@ -27,10 +27,10 @@ public class TemplateService {
 	}
 	
 	
-	public Boolean TransportIntersection(List<String> arrayOne, List<String> arrayTwo) {		     
+	public Boolean TransportIntersection(ArrayList<String> arrayOne, ArrayList<String> arrayTwo) {		     
 		for(int i = 0; i<arrayOne.size(); i++ ) {
 			for(int j = 0; j<arrayTwo.size(); j++) {
-				if(arrayOne.indexOf(i)==arrayTwo.indexOf(j)) {
+				if(arrayOne.get(i)==arrayTwo.get(j)) {
 					return true;
 				}
 			}
@@ -43,12 +43,13 @@ public class TemplateService {
 	public List<Template> filterTemplates(int duration, String travelertype, String pace, String transport) {
 		
 		//get list of transport options user DOES NOT want passed in as params
-		List<String> paramsTransportOptions = Arrays.asList(transport.split("\\s*,\\s*"));
+		ArrayList<String> paramsTransportOptions = new ArrayList<> (Arrays.asList(transport.split("\\s*,\\s*")));
+		
 		List<Template> templates = new ArrayList<>();
 		
 		for(Template t : templateRepository.findAll()) {
 			//check for overlap between unwanted transport options and current template
-			List<String> currentTransportOptions = Arrays.asList(t.getTransport().split("\\s*,\\s*"));
+			ArrayList<String> currentTransportOptions = new ArrayList<> (Arrays.asList(t.getTransport().split("\\s*,\\s*")));
 		
 			if (TransportIntersection(currentTransportOptions, paramsTransportOptions)) {
 				break;
