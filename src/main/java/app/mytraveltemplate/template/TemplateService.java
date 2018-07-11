@@ -22,11 +22,7 @@ public class TemplateService {
 		return templates;
 	}
 	
-	public Template getTemplate(Integer id) {
-		return templateRepository.findOne(id);
-	}
-	
-	
+	//helper method to find overlap between transportation lists
 	public Boolean TransportIntersection(ArrayList<String> arrayOne, ArrayList<String> arrayTwo) {		     
 		for(int i = 0; i<arrayOne.size(); i++ ) {
 			for(int j = 0; j<arrayTwo.size(); j++) {

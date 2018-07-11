@@ -19,11 +19,6 @@ public class TemplateController {
 
 	}
 	
-	@RequestMapping("/templates/{id}")
-	public Template getTemplate(@PathVariable int id) {
-		return templateService.getTemplate(id);
-	}
-	
 	@RequestMapping("templates/duration/{duration}/travelers/{travelerType}/pace/{pace}/transport/{transport}")
 		public List<Template> filterTemplates(@PathVariable int duration, @PathVariable String travelerType, @PathVariable String pace, @PathVariable String transport) {
 		return templateService.filterTemplates(duration, travelerType, pace, transport);
