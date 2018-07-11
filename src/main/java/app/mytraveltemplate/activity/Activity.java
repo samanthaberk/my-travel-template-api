@@ -1,8 +1,16 @@
 package app.mytraveltemplate.activity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import app.mytraveltemplate.tag.Tag;
 
 @Entity
 @Table(name= "activities")
@@ -12,6 +20,13 @@ public class Activity {
 	private Integer id;
 	private String city;
 	private String content;
+	
+	@ManyToMany
+	@JoinTable(name = "activitytag",
+			joinColumns = @JoinColumn(name = "activityid", referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "tagid", referencedColumnName = "id"))
+	private Set<Tag> tags = new HashSet<Tag>();
+			
 
 	public Activity() {
 	}
