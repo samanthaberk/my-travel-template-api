@@ -21,5 +21,10 @@ public class TagService {
 		return tags;
 	}
 
+
+	public Tag findOne(Integer id) {
+		return tagRepository.findOne(id);
+	}
+
 }
 
