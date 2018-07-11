@@ -15,27 +15,34 @@ import app.mytraveltemplate.tag.Tag;
 @Entity
 @Table(name= "activities")
 public class Activity {
-	
+
 	@Id
 	private Integer id;
 	private String city;
 	private String content;
-	
+
 	@ManyToMany
 	@JoinTable(name = "activitytag",
 			joinColumns = @JoinColumn(name = "activityid", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name = "tagid", referencedColumnName = "id"))
 	private Set<Tag> tags = new HashSet<Tag>();
-			
 
 	public Activity() {
 	}
-	
+
 	public Activity(Integer id, String city, String content) {
 		super();
 		this.id = id;
 		this.city = city;
 		this.content = content;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
 	}
 
 	public Integer getId() {
@@ -61,6 +68,6 @@ public class Activity {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-	
+
+
 }

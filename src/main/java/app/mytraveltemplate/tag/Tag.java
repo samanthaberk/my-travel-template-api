@@ -39,6 +39,14 @@ public class Tag {
 		this.tagname = tagname;
 	}
 
+	public Set<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(Set<Activity> activities) {
+		this.activities = activities;
+	}
+
 	public Integer getId() {
 		return id;
 	}
