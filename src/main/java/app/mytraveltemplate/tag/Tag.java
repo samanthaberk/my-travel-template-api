@@ -21,7 +21,7 @@ public class Tag {
 	
 	@Id
 	private Integer id;
-	private String tagname;
+	public String tagname;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JsonBackReference
