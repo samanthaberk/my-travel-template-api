@@ -23,6 +23,7 @@ public class ActivityController {
 		return activityService.filterActivities(query);
 	}
 	
+	
 	public class ActivityQuery {	
 		private String city;
 		private String timeOfDay;

@@ -56,7 +56,6 @@ public class ActivityService {
 									
 								}
 					}
-//				break;
 				}
 			}
 		return activities;
