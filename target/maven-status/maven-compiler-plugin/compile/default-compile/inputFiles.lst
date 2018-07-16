@@ -1,5 +1,13 @@
-/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/template/Template.java
-/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/template/TemplateService.java
 /Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/Application.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/activity/Activity.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/activity/ActivityService.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/template/Template.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/tag/TagRepository.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/tag/TagService.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/template/TemplateService.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/tag/TagController.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/activity/ActivityController.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/activity/ActivityRepository.java
 /Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/template/TemplateController.java
 /Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/template/TemplateRepository.java
+/Users/samanthaberk/Documents/ada/capstone/java-spring-api/src/main/java/app/mytraveltemplate/tag/Tag.java

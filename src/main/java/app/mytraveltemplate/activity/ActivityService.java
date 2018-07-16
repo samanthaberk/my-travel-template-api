@@ -39,6 +39,7 @@ public class ActivityService {
 					//examine tags for activities in that city
 					for(Tag t : tagRepository.findAll()) 
 					{
+					//does the tag we're looking at match a parameter in the query?
 						if( 
 							t.tagname.equals(query.getTimeOfDay()) || t.tagname.equals(query.getPace())
 							|| t.tagname.equals(query.getType())
@@ -48,12 +49,14 @@ public class ActivityService {
 							|| query.getEntertainment().contains(t.tagname)
 							|| query.getTransport().contains(t.tagname)
 							)
+							
+							//if it does, add the activity to the list
 								{
 									activities.add(a);
+									
 								}
-						break;
 					}
-				break;
+//				break;
 				}
 			}
 		return activities;
