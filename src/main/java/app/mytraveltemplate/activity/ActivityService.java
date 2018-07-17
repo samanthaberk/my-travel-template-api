@@ -35,8 +35,8 @@ public class ActivityService {
 	}
 
 	//helper function to filter for timeOfDay
-	public Boolean timeOfDayMatches(Tag tag, String timeOfDay) {
-		if (tag.tagname.equals(timeOfDay)) {
+	public Boolean paramMatch(Tag tag, String param) {
+		if (tag.tagname.equals(param)) {
 			return true;
 		} else {
 			return false;
@@ -52,7 +52,7 @@ public class ActivityService {
 			List<Tag> tags = a.getTags(); // get tags for each activity
 			
 			for(int i = 0; i<tags.size(); i++) {
-				if ( timeOfDayMatches(tags.get(i), timeOfDay) ) {
+				if ( paramMatch(tags.get(i), timeOfDay) ) {
 					filteredActivities.add(a);
 				}
 			}
