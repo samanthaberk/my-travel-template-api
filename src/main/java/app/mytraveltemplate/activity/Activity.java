@@ -1,9 +1,7 @@
 package app.mytraveltemplate.activity;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,6 +21,10 @@ public class Activity {
 	private String city;
 	private String content;
 	private String timeOfDay;
+	private String type;
+	private String budget;
+	private String pace;
+	private String sites;
 
 	@ManyToMany
 	@JoinTable(name = "activitytag",
@@ -33,12 +35,16 @@ public class Activity {
 	public Activity() {
 	}
 
-	public Activity(Integer id, String city, String content, String timeOfDay) {
+	public Activity(Integer id, String city, String content, String timeOfDay, String type, String budget, String pace, String sites) {
 		super();
 		this.id = id;
 		this.city = city;
 		this.content = content;
 		this.timeOfDay = timeOfDay;
+		this.type = type;
+		this.budget = budget;
+		this.pace = pace;
+		this.sites = sites;
 	}
 
 	public List<Tag> getTags() {
@@ -81,5 +87,37 @@ public class Activity {
 		this.timeOfDay = timeOfDay;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getBudget() {
+		return budget;
+	}
+
+	public void setBudget(String budget) {
+		this.budget = budget;
+	}
+
+	public String getPace() {
+		return pace;
+	}
+
+	public void setPace(String pace) {
+		this.pace = pace;
+	}
+
+	public String getSites() {
+		return sites;
+	}
+
+	public void setSites(String sites) {
+		this.sites = sites;
+	}	
+	
 
 }

@@ -43,29 +43,27 @@ public class ActivityService {
 	}
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String pace, String type) {
-		List<Activity> activities = activityRepository.findByCityAndTimeOfDay(city, timeOfDay); // isolate activities for that city
+	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type) {
+		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndType(city, timeOfDay, type); // isolate activities for that city
 		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
 
-		for ( Activity a : activities ) {
-			List<Tag> tags = a.getTags(); // get tags for each activity
-		
-			int i = 0;
-			while (i<tags.size()) {
-				String currentTag = tags.get(i).tagname;
-				if (
-						paramMatch(currentTag, pace) ||
-						paramMatch(currentTag, type)
-						) {
-					i++;
-				} else {
-					break;
-				}
-				filteredActivities.add(a);
-			}
+//		for ( Activity a : activities ) {
+//			List<Tag> tags = a.getTags(); // get tags for each activity
+//		
+//			int i = 0;
+//			while (i<tags.size()) {
+//				String currentTag = tags.get(i).tagname;
+//				if (
+//						) {
+//					i++;
+//				} else {
+//					break;
+//				}
+//				filteredActivities.add(a);
+//			}
 			
 
-		}
+//		}
 		return activities;
 	}
 }

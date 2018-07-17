@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ActivityRepository extends CrudRepository<Activity, Integer> {
-	List<Activity> findByCityAndTimeOfDay(String city, String timeOfDay);
+	List<Activity> findByCityAndTimeOfDayAndType(String city, String timeOfDay, String type);
 }
