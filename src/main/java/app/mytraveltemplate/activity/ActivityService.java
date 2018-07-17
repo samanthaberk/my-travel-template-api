@@ -38,8 +38,8 @@ public class ActivityService {
 	}
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type) {
-		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndType(city, timeOfDay, type); // isolate activities for that city
+	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites) {
+		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, type, budget, pace, sites); // isolate activities for that city
 		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
 
 //		for ( Activity a : activities ) {
