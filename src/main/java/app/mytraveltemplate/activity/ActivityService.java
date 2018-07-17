@@ -34,17 +34,13 @@ public class ActivityService {
 		return activities;
 	}
 
-	//helper function to filter for timeOfDay, pace, type, budget, and sites
-	public Boolean tagsMatch(Activity activity, String timeOfDay) {
-		List<Tag> tags = activity.getTags();
-		
-		for ( Tag t : tags ) {
-			if (
-					t.tagname.equals(timeOfDay)) {
-				return true;
-			} 
+	//helper function to filter for timeOfDay
+	public Boolean timeOfDayMatches(Tag tag, String timeOfDay) {
+		if (tag.tagname.equals(timeOfDay)) {
+			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
 	
 	// filter for timeOfDay, pace, type, budget, and sites
@@ -56,7 +52,7 @@ public class ActivityService {
 			List<Tag> tags = a.getTags(); // get tags for each activity
 			
 			for(int i = 0; i<tags.size(); i++) {
-				if ( tags.get(i).tagname.equals(timeOfDay) ) {
+				if ( timeOfDayMatches(tags.get(i), timeOfDay) ) {
 					filteredActivities.add(a);
 				}
 			}
