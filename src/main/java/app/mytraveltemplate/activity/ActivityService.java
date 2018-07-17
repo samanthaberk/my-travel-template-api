@@ -1,6 +1,7 @@
 package app.mytraveltemplate.activity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,16 +39,17 @@ public class ActivityService {
 	}
 	
 	//get percentage overlap between user input and choices
-	public double getPercentage(ArrayList<String> userInput, ArrayList<String> allChoices ) {
+	public double getPercentage(String userInput, ArrayList<String> allChoices ) {
+		List<String> userInputList = Arrays.asList(userInput.split("\\s*,\\s*"));
 		  double percentage=0;
-		  for(int i = 0; i < userInput.size(); i++) {
+		  for(int i = 0; i < userInputList.size(); i++) {
 		    for(int j = 0; j < allChoices.size(); j++) {
-		      if(userInput.get(i).equals(allChoices.get(j))) { 
+		      if(userInputList.get(i).equals(allChoices.get(j))) { 
 		        percentage++;
 		      }
 		    }
 		  }
-		  return (percentage/userInput.size())*100; 
+		  return (percentage/userInputList.size())*100; 
 		} 
 	
 	// filter for timeOfDay, pace, type, budget, and sites
