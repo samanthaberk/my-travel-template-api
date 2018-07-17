@@ -3,6 +3,7 @@ package app.mytraveltemplate.activity;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,11 @@ public class ActivityController {
 	@RequestMapping("/activities")
 	public List<Activity> getAllActivities()  {
 		return activityService.getAllActivities();
+	}
+	
+	@RequestMapping("/activities/{city}")
+	public List<Activity> filterActivitiesByCity(@PathVariable String city) {
+		return activityService.filterActivitiesByCity(city);
 	}
 	
 	@PostMapping("/filter/{query}")
