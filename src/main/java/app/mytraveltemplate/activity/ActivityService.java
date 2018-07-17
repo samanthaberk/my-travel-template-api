@@ -37,11 +37,26 @@ public class ActivityService {
 		}
 	}
 	
+	//get percentage overlap between user input and choices
+	public double getPercentage(ArrayList<String> userInput, ArrayList<String> allChoices ) {
+		  double percentage=0;
+		  for(int i = 0; i < userInput.size(); i++) {
+		    for(int j = 0; j < allChoices.size(); j++) {
+		      if(userInput.get(i).equals(allChoices.get(j))) { 
+		        percentage++;
+		      }
+		    }
+		  }
+		  return (percentage/userInput.size())*100; 
+		} 
+	
 	// filter for timeOfDay, pace, type, budget, and sites
 	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites) {
 		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, type, budget, pace, sites); // isolate activities for that city
 		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
-
+		
+		
+		
 //		for ( Activity a : activities ) {
 //			List<Tag> tags = a.getTags(); // get tags for each activity
 //		
