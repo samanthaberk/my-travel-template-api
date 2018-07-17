@@ -24,9 +24,9 @@ public class ActivityController {
 		return activityService.filterActivitiesByCity(city);
 	}
 	
-	@RequestMapping("/filter/{city}/{timeOfDay}")
-	public List<Activity> filterActivities(@PathVariable String city, @PathVariable String timeOfDay) {
-		return activityService.filterActivitiesInCity(city, timeOfDay);
+	@RequestMapping("/filter/{city}/{timeOfDay}/{pace}")
+	public List<Activity> filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String pace) {
+		return activityService.filterActivitiesInCity(city, timeOfDay, pace);
 	}
 
 }

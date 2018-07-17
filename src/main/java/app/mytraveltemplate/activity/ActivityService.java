@@ -33,7 +33,7 @@ public class ActivityService {
 		return activities;
 	}
 
-	//helper function to filter for timeOfDay
+	//helper function to filter for single params
 	public Boolean paramMatch(String tag, String param) {
 		if (tag.equals(param)) {
 			return true;
@@ -43,7 +43,7 @@ public class ActivityService {
 	}
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Activity> filterActivitiesInCity(String city, String timeOfDay) {
+	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String pace) {
 		List<Activity> activities = filterActivitiesByCity(city); // isolate activities for that city
 		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
 
@@ -53,7 +53,7 @@ public class ActivityService {
 			int i = 0;
 			while (i<tags.size()) {
 				String currentTag = tags.get(i).tagname;
-				if (paramMatch(currentTag, timeOfDay)) {
+				if (paramMatch(currentTag, timeOfDay) || paramMatch(currentTag, pace)) {
 					i++;
 				} else {
 					break;
@@ -61,12 +61,6 @@ public class ActivityService {
 				filteredActivities.add(a);
 			}
 			
-//			
-//			for(Tag t : tags ) {
-//				if ( paramMatch(t, timeOfDay) ) {
-//					filteredActivities.add(a);
-//				}
-//			}
 
 		}
 		return filteredActivities;
