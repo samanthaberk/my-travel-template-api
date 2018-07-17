@@ -2,7 +2,6 @@ package app.mytraveltemplate.activity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,8 +50,8 @@ public class ActivityService {
 		for ( Activity a : activities ) {
 			List<Tag> tags = a.getTags(); // get tags for each activity
 			
-			for(int i = 0; i<tags.size(); i++) {
-				if ( paramMatch(tags.get(i), timeOfDay) ) {
+			for(Tag t : tags ) {
+				if ( paramMatch(t, timeOfDay) ) {
 					filteredActivities.add(a);
 				}
 			}
