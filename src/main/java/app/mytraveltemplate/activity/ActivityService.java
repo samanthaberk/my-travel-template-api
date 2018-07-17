@@ -2,6 +2,7 @@ package app.mytraveltemplate.activity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,58 +34,34 @@ public class ActivityService {
 		return activities;
 	}
 
-//	public List<Activity> filterActivities(ActivityQuery query) {
-//		List<Activity> activities = new ArrayList<>();
-//		
-//		for(Activity a : activityRepository.findAll()) {
-//			// find activities for specified city
-//			if(
-//				a.getCity().equals(query.getCity()) 
-//			  )
-//				{
-//					//examine tags for activities in that city
-//					for(Tag t : tagRepository.findAll()) 
-//					{
-//					//does the tag we're looking at match a parameter in the query?
-//						if( 
-//							t.tagname.equals(query.getTimeOfDay()) 
-//							|| t.tagname.equals(query.getPace())
-//							|| t.tagname.equals(query.getType())
-//							|| t.tagname.equals(query.getBudget())
-//							|| t.tagname.equals(query.getSites())
-//							|| query.getInterests().contains(t.tagname)
-//							|| query.getEntertainment().contains(t.tagname)
-//							|| query.getTransport().contains(t.tagname)
-//							)
-//							
-//							//if it does, add the activity to the list
-//								{
-//									activities.add(a);
-//									
-//								}
-//					}
-//				}
-//			}
-//		return activities;
-//	}
+	//helper function to filter for timeOfDay, pace, type, budget, and sites
+	public Boolean tagsMatch(Activity activity, String timeOfDay) {
+		List<Tag> tags = activity.getTags();
+		
+		for ( Tag t : tags ) {
+			if (
+					t.tagname.equals(timeOfDay)) {
+				return true;
+			} 
+		}
+		return false;
+	}
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Tag> filterActivitiesInCity(String city, String timeOfDay) {
+	public List<Activity> filterActivitiesInCity(String city, String timeOfDay) {
 		List<Activity> activities = filterActivitiesByCity(city); // isolate activities for that city
-		List<Tag> immutableTags = new ArrayList<>(); //initialize a list of each activity's tag
-		List<Tag> mutableTags = new ArrayList<>(); //initialize a list of each activity's tag
+		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
 
 		for ( Activity a : activities ) {
-			immutableTags.addAll(a.getTags());
-			mutableTags.addAll(a.getTags());
+			List<Tag> tags = a.getTags(); // get tags for each activity
 			
-			for ( Tag t : immutableTags ) {
-				if (!t.tagname.equals(timeOfDay)) {
-					mutableTags.remove(t);
-				} 
+			for(int i = 0; i<tags.size(); i++) {
+				if ( tags.get(i).tagname.equals(timeOfDay) ) {
+					filteredActivities.add(a);
+				}
 			}
-			
+
 		}
-		return mutableTags;
+		return filteredActivities;
 	}
 }

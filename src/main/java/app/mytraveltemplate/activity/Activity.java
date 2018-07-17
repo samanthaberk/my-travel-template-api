@@ -1,6 +1,8 @@
 package app.mytraveltemplate.activity;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -25,7 +27,7 @@ public class Activity {
 	@JoinTable(name = "activitytag",
 			joinColumns = @JoinColumn(name = "activityid", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name = "tagid", referencedColumnName = "id"))
-	private Set<Tag> tags = new HashSet<Tag>();
+	private List<Tag> tags = new ArrayList<Tag>();
 
 	public Activity() {
 	}
@@ -37,11 +39,11 @@ public class Activity {
 		this.content = content;
 	}
 
-	public Set<Tag> getTags() {
+	public List<Tag> getTags() {
 		return tags;
 	}
 
-	public void setTags(Set<Tag> tags) {
+	public void setTags(List<Tag> tags) {
 		this.tags = tags;
 	}
 
