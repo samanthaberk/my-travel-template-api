@@ -71,11 +71,20 @@ public class ActivityService {
 	// filter for timeOfDay, pace, type, budget, and sites
 	public List<Tag> filterActivitiesInCity(String city, String timeOfDay) {
 		List<Activity> activities = filterActivitiesByCity(city); // isolate activities for that city
-		List<Tag> tags = new ArrayList<>(); //initialize a list of each activity's tag
-		
-		for (Activity a : activities ) {
-			tags.addAll(a.getTags());
+		List<Tag> immutableTags = new ArrayList<>(); //initialize a list of each activity's tag
+		List<Tag> mutableTags = new ArrayList<>(); //initialize a list of each activity's tag
+
+		for ( Activity a : activities ) {
+			immutableTags.addAll(a.getTags());
+			mutableTags.addAll(a.getTags());
+			
+			for ( Tag t : immutableTags ) {
+				if (!t.tagname.equals(timeOfDay)) {
+					mutableTags.remove(t);
+				} 
+			}
+			
 		}
-		return tags;
+		return mutableTags;
 	}
 }
