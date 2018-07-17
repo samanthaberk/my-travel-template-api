@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.mytraveltemplate.tag.Tag;
-
 @RestController
 public class ActivityController {
 	@Autowired
@@ -19,14 +17,10 @@ public class ActivityController {
 		return activityService.getAllActivities();
 	}
 	
-	@RequestMapping("/activities/{city}")
-	public List<Activity> filterActivitiesByCity(@PathVariable String city) {
-		return activityService.filterActivitiesByCity(city);
-	}
 	
-	@RequestMapping("/filter/{city}/{timeOfDay}/{pace}")
-	public List<Activity> filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String pace) {
-		return activityService.filterActivitiesInCity(city, timeOfDay, pace);
+	@RequestMapping("/filter/{city}/{timeOfDay}/{pace}/{type}")
+	public List<Activity> filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String pace, @PathVariable String type) {
+		return activityService.filterActivitiesInCity(city, timeOfDay, pace, type);
 	}
 
 }

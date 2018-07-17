@@ -23,15 +23,15 @@ public class ActivityService {
 	}
 	
 	//filter activities by city
-	public List<Activity> filterActivitiesByCity(String city) {
-		List<Activity> activities = new ArrayList<>();
-		for(Activity a : activityRepository.findAll()) {
-			if (a.getCity().equals(city) ) {
-				activities.add(a);
-			}
-		}
-		return activities;
-	}
+//	public List<Activity> filterActivitiesByCity(String city) {
+//		List<Activity> activities = new ArrayList<>();
+//		for(Activity a : activityRepository.findAll()) {
+//			if (a.getCity().equals(city) ) {
+//				activities.add(a);
+//			}
+//		}
+//		return activities;
+//	}
 
 	//helper function to filter for single params
 	public Boolean paramMatch(String tag, String param) {
@@ -43,8 +43,8 @@ public class ActivityService {
 	}
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String pace) {
-		List<Activity> activities = filterActivitiesByCity(city); // isolate activities for that city
+	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String pace, String type) {
+		List<Activity> activities = activityRepository.findByCityAndTimeOfDay(city, timeOfDay); // isolate activities for that city
 		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
 
 		for ( Activity a : activities ) {
@@ -53,7 +53,10 @@ public class ActivityService {
 			int i = 0;
 			while (i<tags.size()) {
 				String currentTag = tags.get(i).tagname;
-				if (paramMatch(currentTag, timeOfDay) || paramMatch(currentTag, pace)) {
+				if (
+						paramMatch(currentTag, pace) ||
+						paramMatch(currentTag, type)
+						) {
 					i++;
 				} else {
 					break;
@@ -63,6 +66,6 @@ public class ActivityService {
 			
 
 		}
-		return filteredActivities;
+		return activities;
 	}
 }

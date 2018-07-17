@@ -22,6 +22,7 @@ public class Activity {
 	private Integer id;
 	private String city;
 	private String content;
+	private String timeOfDay;
 
 	@ManyToMany
 	@JoinTable(name = "activitytag",
@@ -32,11 +33,12 @@ public class Activity {
 	public Activity() {
 	}
 
-	public Activity(Integer id, String city, String content) {
+	public Activity(Integer id, String city, String content, String timeOfDay) {
 		super();
 		this.id = id;
 		this.city = city;
 		this.content = content;
+		this.timeOfDay = timeOfDay;
 	}
 
 	public List<Tag> getTags() {
@@ -69,6 +71,14 @@ public class Activity {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getTimeOfDay() {
+		return timeOfDay;
+	}
+
+	public void setTimeOfDay(String timeOfDay) {
+		this.timeOfDay = timeOfDay;
 	}
 
 
