@@ -23,15 +23,10 @@ public class ActivityService {
 	}
 	
 	//filter activities by city
-//	public List<Activity> filterActivitiesByCity(String city) {
-//		List<Activity> activities = new ArrayList<>();
-//		for(Activity a : activityRepository.findAll()) {
-//			if (a.getCity().equals(city) ) {
-//				activities.add(a);
-//			}
-//		}
-//		return activities;
-//	}
+	public List<Activity> filterActivitiesByCity(String city) {
+		List<Activity> activities = activityRepository.findAllByCity(city);
+		return activities;
+	}
 
 	//helper function to filter for single params
 	public Boolean paramMatch(String tag, String param) {

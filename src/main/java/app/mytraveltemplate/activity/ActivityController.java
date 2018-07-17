@@ -17,6 +17,11 @@ public class ActivityController {
 		return activityService.getAllActivities();
 	}
 	
+	@RequestMapping("/activities/{city}") 
+	public List<Activity> filterActivitiesByCity(@PathVariable String city) {
+		return activityService.filterActivitiesByCity(city);
+	}
+	
 	
 	@RequestMapping("/filter/{city}/{timeOfDay}/{type}")
 	public List<Activity> filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String type) {
