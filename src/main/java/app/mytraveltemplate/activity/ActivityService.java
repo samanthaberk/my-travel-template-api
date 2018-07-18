@@ -39,12 +39,11 @@ public class ActivityService {
 	}
 	
 	//get percentage overlap between user input and choices
-	public double getPercentage(String userInput, ArrayList<String> allChoices ) {
-		List<String> userInputList = Arrays.asList(userInput.split("\\s*,\\s*"));
+	public double getPercentage(List<String> userInputList, List<String> tagnames ) {
 		  double percentage=0;
 		  for(int i = 0; i < userInputList.size(); i++) {
-		    for(int j = 0; j < allChoices.size(); j++) {
-		      if(userInputList.get(i).equals(allChoices.get(j))) { 
+		    for(int j = 0; j < tagnames.size(); j++) {
+		      if(userInputList.get(i).equals(tagnames.get(j))) { 
 		        percentage++;
 		      }
 		    }
@@ -53,29 +52,32 @@ public class ActivityService {
 		} 
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites) {
+	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites, ArrayList<String> internalTravel, ArrayList<String> interests, ArrayList<String> entertainment) {
 		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, type, budget, pace, sites); // isolate activities for that city
-		List<Activity> filteredActivities = new ArrayList<>(); // initialize list of activities to filter and return
+		Activity activity = null;
 		
+		List<String> userInputList = new ArrayList<>();
+		userInputList.addAll(internalTravel);
+		userInputList.addAll(interests);
+		userInputList.addAll(entertainment);
 		
-		
-//		for ( Activity a : activities ) {
-//			List<Tag> tags = a.getTags(); // get tags for each activity
-//		
-//			int i = 0;
-//			while (i<tags.size()) {
-//				String currentTag = tags.get(i).tagname;
-//				if (
-//						) {
-//					i++;
-//				} else {
-//					break;
-//				}
-//				filteredActivities.add(a);
-//			}
-			
+		double percentage=0; //set counter 
 
-//		}
-		return activities;
+		for ( Activity a : activities ) {
+			List<Tag> tags = a.getTags(); //get tags for each activity
+			
+			List<String> tagnames = new ArrayList<>();//isolate tag name
+			for ( Tag t : tags ) { 
+				tagnames.add(t.getTagname());
+			}
+			double currentPercentage = getPercentage(userInputList, tagnames);
+			if (currentPercentage > percentage) {
+				percentage = currentPercentage;
+				activity = a;
+			}
+			
+		}
+		
+		return activity;
 	}
 }
