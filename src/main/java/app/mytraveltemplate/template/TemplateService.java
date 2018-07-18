@@ -36,7 +36,7 @@ public class TemplateService {
 	
 	
 	
-	public List<Template> filterTemplates(int duration, String travelertype, String pace, String transport) {
+	public List<Template> filterTemplates(String duration, String travelertype, String pace, String transport) {
 		
 		//get list of transport options user DOES NOT want passed in as params
 		ArrayList<String> paramsTransportOptions = new ArrayList<> (Arrays.asList(transport.split("\\s*,\\s*")));

@@ -20,7 +20,7 @@ public class TemplateController {
 	}
 	
 	@RequestMapping("templates/duration/{duration}/travelers/{travelerType}/pace/{pace}/transport/{transport}")
-		public List<Template> filterTemplates(@PathVariable int duration, @PathVariable String travelerType, @PathVariable String pace, @PathVariable String transport) {
+		public List<Template> filterTemplates(@PathVariable String duration, @PathVariable String travelerType, @PathVariable String pace, @PathVariable String transport) {
 		return templateService.filterTemplates(duration, travelerType, pace, transport);
 	}
 
