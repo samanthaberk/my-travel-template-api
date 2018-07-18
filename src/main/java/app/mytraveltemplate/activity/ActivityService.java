@@ -52,7 +52,7 @@ public class ActivityService {
 		} 
 	
 	// filter for timeOfDay, pace, type, budget, and sites
-	public List<Activity> filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites, ArrayList<String> internalTravel, ArrayList<String> interests, ArrayList<String> entertainment) {
+	public Activity filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites, ArrayList<String> internalTravel, ArrayList<String> interests, ArrayList<String> entertainment) {
 		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, type, budget, pace, sites); // isolate activities for that city
 		Activity activity = null;
 		

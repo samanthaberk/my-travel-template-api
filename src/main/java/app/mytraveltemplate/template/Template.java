@@ -10,7 +10,7 @@ public class Template {
 	
 	@Id
 	private Integer id;
-	private Integer duration;
+	private String duration;
 	private String travelertype;
 	private String pace;
 	private String transport;
@@ -19,7 +19,7 @@ public class Template {
 	public Template() {
 	}
 	
-	public Template(Integer id, Integer duration, String travelertype, String pace, String transport,
+	public Template(Integer id, String duration, String travelertype, String pace, String transport,
 			String content) {
 		super();
 		this.id = id;
@@ -37,10 +37,10 @@ public class Template {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Integer getDuration() {
+	public String getDuration() {
 		return duration;
 	}
-	public void setDuration(int duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 	public String getTravelertype() {
