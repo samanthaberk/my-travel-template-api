@@ -3,6 +3,7 @@ package app.mytraveltemplate.template;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ public class TemplateController {
 	private TemplateService templateService;
 	
 	@RequestMapping("/templates")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public List<Template> getAllTemplates()  {
 		return templateService.getAllTemplates();
 
@@ -23,5 +25,6 @@ public class TemplateController {
 		public List<Template> filterTemplates(@PathVariable String duration, @PathVariable String travelerType, @PathVariable String pace, @PathVariable String transport) {
 		return templateService.filterTemplates(duration, travelerType, pace, transport);
 	}
+	
 
 }
