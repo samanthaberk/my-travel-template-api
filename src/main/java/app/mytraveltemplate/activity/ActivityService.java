@@ -53,13 +53,14 @@ public class ActivityService {
 	// filter for timeOfDay, pace, type, budget, and sites
 	public Activity filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites, ArrayList<String> internalTravel, ArrayList<String> interests, ArrayList<String> entertainment) {
 		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, type, budget, pace, sites); // isolate activities for that city
-		Activity activity = null;
+		Activity activity = activities.get(0);
+		System.out.println(activities.toString());
 		
 		List<String> userInputList = new ArrayList<>();
 		userInputList.addAll(internalTravel);
 		userInputList.addAll(interests);
 		userInputList.addAll(entertainment);
-		
+		System.out.println(userInputList.toString());
 		double percentage=0; //set counter 
 
 		for ( Activity a : activities ) {
@@ -69,14 +70,17 @@ public class ActivityService {
 			for ( Tag t : tags ) { 
 				tagnames.add(t.getTagname());
 			}
+			System.out.println(tagnames);
 			double currentPercentage = getPercentage(userInputList, tagnames);
+			System.out.println(currentPercentage);
+			System.out.println(percentage);
 			if (currentPercentage > percentage) {
 				percentage = currentPercentage;
 				activity = a;
 			}
 			
 		}
-		
+		System.out.print(activity);
 		return activity;
 	}
 }
