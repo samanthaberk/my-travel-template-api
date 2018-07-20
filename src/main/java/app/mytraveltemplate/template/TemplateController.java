@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class TemplateController {
 	
 	@Autowired
 	private TemplateService templateService;
 	
 	@RequestMapping("/templates")
-	@CrossOrigin(origins = "http://localhost:3000")
 	public List<Template> getAllTemplates()  {
 		return templateService.getAllTemplates();
 
