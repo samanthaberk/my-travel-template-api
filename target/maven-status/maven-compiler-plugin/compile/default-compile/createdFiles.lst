@@ -1,0 +1,14 @@
+app/mytraveltemplate/tag/Tag.class
+app/mytraveltemplate/template/TemplateService.class
+app/mytraveltemplate/activity/ActivityService.class
+app/mytraveltemplate/tag/TagService.class
+app/mytraveltemplate/tag/TagController.class
+app/mytraveltemplate/template/TemplateController.class
+app/mytraveltemplate/tag/TagRepository.class
+app/mytraveltemplate/Application$1.class
+app/mytraveltemplate/template/TemplateRepository.class
+app/mytraveltemplate/activity/ActivityRepository.class
+app/mytraveltemplate/Application.class
+app/mytraveltemplate/template/Template.class
+app/mytraveltemplate/activity/Activity.class
+app/mytraveltemplate/activity/ActivityController.class

@@ -7,6 +7,10 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
+<<<<<<< HEAD
+=======
+		<config>java:app.mytraveltemplate.unittestgin.Application</config>
+>>>>>>> activitytag-join-table
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
