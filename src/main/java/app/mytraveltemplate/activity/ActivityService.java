@@ -50,14 +50,14 @@ public class ActivityService {
 		  return (percentage/userInputList.size())*100; 
 		} 
 	
-	// filter for timeOfDay, pace, type, budget, and sites
-	public Activity filterActivitiesInCity(String city, String timeOfDay, String type, String budget, String pace, String sites, ArrayList<String> internalTravel, ArrayList<String> interests, ArrayList<String> entertainment) {
-		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, type, budget, pace, sites); // isolate activities for that city
+	// filter for timeOfDay, pace, travelParty, budget, and sites
+	public Activity filterActivitiesInCity(String city, String timeOfDay, String travelParty, String budget, String pace, String sites, ArrayList<String> cityTravel, ArrayList<String> interests, ArrayList<String> entertainment) {
+		List<Activity> activities = activityRepository.findByCityAndTimeOfDayAndTypeAndBudgetAndPaceAndSites(city, timeOfDay, travelParty, budget, pace, sites); // isolate activities for that city
 		Activity activity = activities.get(0);
 		System.out.println(activities.toString());
 		
 		List<String> userInputList = new ArrayList<>();
-		userInputList.addAll(internalTravel);
+		userInputList.addAll(cityTravel);
 		userInputList.addAll(interests);
 		userInputList.addAll(entertainment);
 		System.out.println(userInputList.toString());

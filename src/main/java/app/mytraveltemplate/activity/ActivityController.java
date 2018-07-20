@@ -24,9 +24,9 @@ public class ActivityController {
 	}
 	
 	
-	@RequestMapping("/filter/{city}/{timeOfDay}/{type}/{budget}/{pace}/{sites}/{internalTravel}/{interests}/{entertainment}")
-	public Activity filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String type, @PathVariable String budget, @PathVariable String pace, @PathVariable String sites, @PathVariable ArrayList<String> internalTravel, @PathVariable ArrayList<String> interests, @PathVariable ArrayList<String> entertainment) {
-		return activityService.filterActivitiesInCity(city, timeOfDay, type, budget, pace, sites, internalTravel, interests, entertainment);
+	@RequestMapping("/filter/{city}/{timeOfDay}/{travelParty}/{budget}/{pace}/{sites}/{cityTravel}/{interests}/{entertainment}")
+	public Activity filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String travelParty, @PathVariable String budget, @PathVariable String pace, @PathVariable String sites, @PathVariable ArrayList<String> cityTravel, @PathVariable ArrayList<String> interests, @PathVariable ArrayList<String> entertainment) {
+		return activityService.filterActivitiesInCity(city, timeOfDay, travelParty, budget, pace, sites, cityTravel, interests, entertainment);
 	}
 
 }
