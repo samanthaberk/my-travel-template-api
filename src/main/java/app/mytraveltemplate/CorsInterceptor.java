@@ -14,7 +14,6 @@ public class CorsInterceptor extends HandlerInterceptorAdapter{
 			ModelAndView modelAndView) throws Exception {
 		
 		response.addHeader("Access-Control-Allow-Origin", "http://localhost:3000/");
-		response.addHeader("X-something-I-made-up", "yes");
 		super.postHandle(request, response, handler, modelAndView);
 	}
 		//@Override

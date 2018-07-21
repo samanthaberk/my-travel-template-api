@@ -64,16 +64,15 @@ public class ActivityService {
 		double percentage=0; //set counter 
 
 		for ( Activity a : activities ) {
+			//remove activity and continue if it's already been chosen
+			
 			List<Tag> tags = a.getTags(); //get tags for each activity
 			
 			List<String> tagnames = new ArrayList<>();//isolate tag name
 			for ( Tag t : tags ) { 
 				tagnames.add(t.getTagname());
 			}
-			System.out.println(tagnames);
 			double currentPercentage = getPercentage(userInputList, tagnames);
-			System.out.println(currentPercentage);
-			System.out.println(percentage);
 			if (currentPercentage > percentage) {
 				percentage = currentPercentage;
 				activity = a;
