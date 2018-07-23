@@ -1,11 +1,10 @@
 package app.mytraveltemplate.template;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,11 +21,8 @@ public class Template {
 	private String pace;
 	private String transport;
 	private String content;
-	@OneToMany
-	@JoinTable(name="templateActivity", joinColumns=@JoinColumn(name="userId"),
-				inverseJoinColumns=@JoinColumn(name="templateId")
-	)
-	private Collection<Activity> activities = new ArrayList<Activity>();
+	@OneToMany(mappedBy = "templates")
+	private List<Activity> activities = new ArrayList<Activity>();
 	
 	public Template() {
 	}
@@ -80,11 +76,11 @@ public class Template {
 		this.content = content;
 	}
 
-	public Collection<Activity> getActivities() {
+	public List<Activity> getActivities() {
 		return activities;
 	}
 
-	public void setActivities(Collection<Activity> activities) {
+	public void setActivities(List<Activity> activities) {
 		this.activities = activities;
 	}
 	

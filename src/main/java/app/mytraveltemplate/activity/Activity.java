@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import app.mytraveltemplate.tag.Tag;
+import app.mytraveltemplate.template.Template;
 
 @Entity
 @Table(name= "activities")
@@ -29,7 +30,7 @@ public class Activity {
 	
 	@ManyToOne
 	@JoinColumn(name = "activityTemplateId")
-	private ActivityTemplate activityTemplate;
+	private Template template;
 
 	@ManyToMany
 	@JoinTable(name = "activitytag",
@@ -123,13 +124,5 @@ public class Activity {
 	public void setSites(String sites) {
 		this.sites = sites;
 	}
-
-	public ActivityTemplate getActivityTemplate() {
-		return activityTemplate;
-	}
-
-	public void setActivityTemplate(ActivityTemplate activityTemplate) {
-		this.activityTemplate = activityTemplate;
-	}	
 	
 }
