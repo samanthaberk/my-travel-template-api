@@ -1,8 +1,15 @@
 package app.mytraveltemplate.template;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import app.mytraveltemplate.activity.Activity;
 
 @Entity
 @Table(name = "templates")
@@ -15,6 +22,11 @@ public class Template {
 	private String pace;
 	private String transport;
 	private String content;
+	@OneToMany
+	@JoinTable(name="templateActivity", joinColumns=@JoinColumn(name="userId"),
+				inverseJoinColumns=@JoinColumn(name="templateId")
+	)
+	private Collection<Activity> activities = new ArrayList<Activity>();
 	
 	public Template() {
 	}
@@ -34,7 +46,7 @@ public class Template {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getDuration() {
@@ -66,6 +78,14 @@ public class Template {
 	}
 	public void setContent(String content) {
 		this.content = content;
-	}	
+	}
+
+	public Collection<Activity> getActivities() {
+		return activities;
+	}
+
+	public void setActivities(Collection<Activity> activities) {
+		this.activities = activities;
+	}
 	
 }

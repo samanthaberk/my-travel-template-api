@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import app.mytraveltemplate.tag.Tag;
@@ -25,6 +26,10 @@ public class Activity {
 	private String budget;
 	private String pace;
 	private String sites;
+	
+	@ManyToOne
+	@JoinColumn(name = "activityTemplateId")
+	private ActivityTemplate activityTemplate;
 
 	@ManyToMany
 	@JoinTable(name = "activitytag",
@@ -117,7 +122,14 @@ public class Activity {
 
 	public void setSites(String sites) {
 		this.sites = sites;
+	}
+
+	public ActivityTemplate getActivityTemplate() {
+		return activityTemplate;
+	}
+
+	public void setActivityTemplate(ActivityTemplate activityTemplate) {
+		this.activityTemplate = activityTemplate;
 	}	
 	
-
 }
