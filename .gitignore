@@ -5,3 +5,4 @@
 !.elasticbeanstalk/*.global.yml
 src/main/resources/application.properties
 src/main/resources/config/application.properties
+target/classes/config/application.properties
