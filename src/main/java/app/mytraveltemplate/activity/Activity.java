@@ -17,7 +17,7 @@ import app.mytraveltemplate.template.Template;
 
 @Entity
 @Table(name= "activities")
-public class Activity {
+public class Activity implements Comparable<Activity>{
 
 	@Id
 	private Integer id;
@@ -124,6 +124,12 @@ public class Activity {
 
 	public void setSites(String sites) {
 		this.sites = sites;
+	}
+
+	@Override
+	public int compareTo(Activity o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

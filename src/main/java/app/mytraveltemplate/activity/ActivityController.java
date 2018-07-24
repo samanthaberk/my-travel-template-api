@@ -24,7 +24,7 @@ public class ActivityController {
 	
 	@RequestMapping("/activities/{city}") 
 	public List<Activity> filterActivitiesByCity(@PathVariable String city) {
-		return activityService.filterActivitiesByCity(city);
+		return activityService.findActivitiesInCity(city);
 	}
 	
 	
