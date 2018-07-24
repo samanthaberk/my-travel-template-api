@@ -6,12 +6,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import app.mytraveltemplate.tag.Tag;
 import app.mytraveltemplate.template.Template;
 import app.mytraveltemplate.template.TemplateRepository;
 
@@ -39,13 +37,13 @@ public class ActivityService {
 	}
 
 	//helper function to filter for single params
-	private Boolean paramMatch(String tag, String param) {
-		if (tag.equals(param)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+//	private Boolean paramMatch(String tag, String param) {
+//		if (tag.equals(param)) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+//	}
 	
 	//get percentage overlap between user input and choices
 	private double getPercentage(List<String> userInputList, List<String> tagnames ) {

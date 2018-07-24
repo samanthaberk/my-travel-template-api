@@ -1,6 +1,5 @@
 package app.mytraveltemplate.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityController {
 	@Autowired
 	private ActivityService activityService;
+	
 	
 	@RequestMapping("/activities")
 	public List<Activity> getAllActivities()  {

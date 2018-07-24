@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -28,8 +29,8 @@ public class Activity {
 	private String pace;
 	private String sites;
 	
-	@ManyToOne
-	@JoinColumn(name = "activityTemplateId")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "template_id")
 	private Template template;
 
 	@ManyToMany

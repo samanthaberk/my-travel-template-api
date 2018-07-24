@@ -21,8 +21,9 @@ public class Template {
 	private String pace;
 	private String transport;
 	private String content;
-	@OneToMany(mappedBy = "templates")
-	private List<Activity> activities = new ArrayList<Activity>();
+	
+	@OneToMany(mappedBy = "template")
+	private List<Activity> activities = new ArrayList<>();
 	
 	public Template() {
 	}
