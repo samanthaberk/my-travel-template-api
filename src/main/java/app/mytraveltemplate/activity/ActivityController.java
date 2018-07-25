@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "https://mytraveltemplate.herokuapp.com/")
+//@CrossOrigin(origins = "https://mytraveltemplate.herokuapp.com/")
 public class ActivityController {
 	@Autowired
 	private ActivityService activityService;
 	
-	
+	@CrossOrigin
 	@RequestMapping("/activities")
 	public List<Activity> getAllActivities()  {
 		return activityService.getAllActivities();
 	}
-	
+	@CrossOrigin
 	@RequestMapping("/activities/{city}") 
 	public List<Activity> filterActivitiesByCity(@PathVariable String city) {
 		return activityService.findActivitiesInCity(city);
@@ -32,7 +32,7 @@ public class ActivityController {
 //	public Activity filterActivities(@PathVariable String city, @PathVariable String timeOfDay, @PathVariable String travelParty, @PathVariable String budget, @PathVariable String pace, @PathVariable String sites, @PathVariable ArrayList<String> cityTravel, @PathVariable ArrayList<String> interests, @PathVariable ArrayList<String> entertainment, @PathVariable ArrayList<String> activityList) {
 //		return activityService.filterActivitiesInCity(city, timeOfDay, travelParty, budget, pace, sites, cityTravel, interests, entertainment, activityList);
 //	}
-	
+	@CrossOrigin
 	@RequestMapping("/getActivities")
 	@PostMapping
 	public List<Activity> test(@RequestBody UserAnswers userAnswers)	{
