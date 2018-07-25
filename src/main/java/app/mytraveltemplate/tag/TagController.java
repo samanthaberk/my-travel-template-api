@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import app.mytraveltemplate.activity.Activity;
 
 @RestController
-@CrossOrigin(origins = "https://mytraveltemplate.herokuapp.com/")
+@CrossOrigin(origins = "*")
 public class TagController {
 	
 	@Autowired
